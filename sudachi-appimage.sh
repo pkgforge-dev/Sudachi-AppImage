@@ -16,14 +16,12 @@ case "$1" in
         echo "Making Sudachi Optimized Build for Steam Deck"
         CMAKE_CXX_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -Wno-error"
         CMAKE_C_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -Wno-error"
-        SUDACHI_USE_PRECOMPILED_HEADERS=OFF
         TARGET="Steamdeck"
         ;;
     modern)
         echo "Making Sudachi Optimized Build for Modern CPUs"
         CMAKE_CXX_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -Wno-error"
         CMAKE_C_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -Wno-error"
-        SUDACHI_USE_PRECOMPILED_HEADERS=OFF
         ARCH="${ARCH}_v3"
         TARGET="Modern"
         ;;
@@ -31,7 +29,6 @@ case "$1" in
         echo "Making Sudachi Optimized Build for Legacy CPUs"
         CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -Wno-error"
         CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -Wno-error"
-        SUDACHI_USE_PRECOMPILED_HEADERS=OFF
         TARGET="Legacy"
         ;;
     aarch64)
@@ -123,18 +120,13 @@ cmake .. -GNinja \
     -DSUDACHI_USE_BUNDLED_FFMPEG=ON \
     -DSUDACHI_TESTS=OFF \
     -DSUDACHI_CHECK_SUBMODULES=OFF \
-    -DSUDACHI_USE_FASTER_LD=ON \
     -DSUDACHI_ENABLE_LTO=ON \
     -DENABLE_QT_TRANSLATION=ON \
-    -DUSE_DISCORD_PRESENCE=OFF \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_SYSTEM_PROCESSOR="$(uname -m)" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_EXE_LINKER_FLAGS="-Wl,--as-needed" \
-    -DCMAKE_C_COMPILER_LAUNCHER="${CCACHE:-}" \
-    -DCMAKE_CXX_COMPILER_LAUNCHER="${CCACHE:-}" \
-    ${SUDACHI_USE_PRECOMPILED_HEADERS:+-DSUDACHI_USE_PRECOMPILED_HEADERS=$SUDACHI_USE_PRECOMPILED_HEADERS} \
     ${CMAKE_CXX_FLAGS:+-DCMAKE_CXX_FLAGS="$CMAKE_CXX_FLAGS"} \
     ${CMAKE_C_FLAGS:+-DCMAKE_C_FLAGS="$CMAKE_C_FLAGS"}
 ninja
