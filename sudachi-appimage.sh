@@ -113,11 +113,15 @@ cd externals/cpp-httplib && git checkout 65ce51aed7f15e40e8fb6d2c0a8efb10bcb4012
 cd "${HOME_DIR}"/sudachi/externals/xbyak && git checkout v6.68
 
 cd "${HOME_DIR}"/sudachi
+
+# workaround for ffmpeg build
+sed -i '/--disable-postproc/d' externals/ffmpeg/CMakeLists.txt
+
 mkdir build
 cd build
 cmake .. -GNinja \
     -DENABLE_QT6=ON \
-    -DSUDACHI_USE_BUNDLED_FFMPEG=OFF \
+    -DSUDACHI_USE_BUNDLED_FFMPEG=ON \
     -DSUDACHI_TESTS=OFF \
     -DSUDACHI_CHECK_SUBMODULES=OFF \
     -DSUDACHI_ENABLE_LTO=ON \
