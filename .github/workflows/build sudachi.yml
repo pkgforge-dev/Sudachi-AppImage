@@ -90,6 +90,7 @@ jobs:
       - uses: actions/download-artifact@v4.3.0
         with:
            name: sudachi-legacy-appimage
+        continue-on-error: true
            
       - uses: actions/download-artifact@v4.3.0
         with:
