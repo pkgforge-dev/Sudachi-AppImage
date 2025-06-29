@@ -123,7 +123,7 @@ cd "${HOME_DIR}"/sudachi
 mkdir build
 cd build
 cmake .. -GNinja \
-    -DSUDACHI_USE_BUNDLED_QT=OFF \
+    -DENABLE_QT6=ON \
     -DSUDACHI_USE_BUNDLED_FFMPEG=ON \
     -DSUDACHI_TESTS=OFF \
     -DSUDACHI_CHECK_SUBMODULES=OFF \
