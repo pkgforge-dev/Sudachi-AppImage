@@ -116,4 +116,3 @@ jobs:
           make_latest: true
           files: |
             *.AppImage*
-          echo test, and deploy your project.
