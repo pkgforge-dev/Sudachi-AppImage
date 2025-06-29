@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
         with:
-          persist-crsudachitials: false
+          persist-credentials: false
 
       - name: Set up ccache for ${{ matrix.target }}
         if: ${{ matrix.target != 'aarch64' }}      
