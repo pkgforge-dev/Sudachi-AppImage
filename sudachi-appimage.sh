@@ -17,7 +17,6 @@ case "$1" in
         CMAKE_CXX_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -Wno-error"
         CMAKE_C_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -Wno-error"
         SUDACHI_USE_PRECOMPILED_HEADERS=OFF
-        CCACHE="ccache"
         TARGET="Steamdeck"
         ;;
     modern)
@@ -25,7 +24,6 @@ case "$1" in
         CMAKE_CXX_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -Wno-error"
         CMAKE_C_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -Wno-error"
         SUDACHI_USE_PRECOMPILED_HEADERS=OFF
-        CCACHE="ccache"
         ARCH="${ARCH}_v3"
         TARGET="Modern"
         ;;
@@ -34,14 +32,12 @@ case "$1" in
         CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -Wno-error"
         CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -Wno-error"
         SUDACHI_USE_PRECOMPILED_HEADERS=OFF
-        CCACHE="ccache"
         TARGET="Legacy"
         ;;
     aarch64)
         echo "Making Sudachi Optimized Build for AArch64"
         CMAKE_CXX_FLAGS="-march=armv8-a -mtune=generic -O3 -pipe -flto=auto -w"
         CMAKE_C_FLAGS="-march=armv8-a -mtune=generic -O3 -pipe -flto=auto -w"
-        CCACHE="sccache"
         TARGET="Linux"
         ;;
 esac
