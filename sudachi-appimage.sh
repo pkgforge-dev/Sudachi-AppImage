@@ -120,6 +120,7 @@ sed -i '/--disable-postproc/d' externals/ffmpeg/CMakeLists.txt
 mkdir build
 cd build
 cmake .. -GNinja \
+    -DSUDACHI_USE_BUNDLED_VCPKG=ON \
     -DENABLE_QT6=ON \
     -DSUDACHI_USE_BUNDLED_FFMPEG=ON \
     -DSUDACHI_TESTS=OFF \
