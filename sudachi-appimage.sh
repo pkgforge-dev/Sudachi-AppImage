@@ -27,8 +27,8 @@ case "$1" in
         ;;
     legacy)
         echo "Making Sudachi Optimized Build for Legacy CPUs"
-        CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -w"
-        CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -w"
+        CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -msse4.1 -O2 -pipe -flto=auto -w"
+        CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -msse4.1 -O2 -pipe -flto=auto -w"
         TARGET="Legacy"
         ;;
     aarch64)
@@ -116,6 +116,9 @@ cd "${HOME_DIR}"/sudachi
 
 # workaround for ffmpeg build
 sed -i '/--disable-postproc/d' externals/ffmpeg/CMakeLists.txt
+
+# workaround for sudachi cmd, not needed anyway for appimage
+sed -i '/^if *(ENABLE_SDL3)/,/^endif *()/d' src/CMakeLists.txt
 
 mkdir build
 cd build
