@@ -6,7 +6,7 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/pflyly/Sudachi-AppImage?label=Current%20Release)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
 [![GitHub Downloads](https://img.shields.io/github/downloads/pflyly/Sudachi-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
-[![CI Build Status](https://github.com//pflyly/Sudachi-AppImage/actions/workflows/build.yml/badge.svg)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
+[![CI Build Status](https://github.com//pflyly/Sudachi-AppImage/actions/workflows/build%20sudachi.yml/badge.svg)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
 
 ### 🐧
 
