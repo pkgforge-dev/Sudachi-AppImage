@@ -14,21 +14,21 @@ LIB4BN="https://raw.githubusercontent.com/VHSgunzo/sharun/refs/heads/main/lib4bi
 case "$1" in
     steamdeck)
         echo "Making Sudachi Optimized Build for Steam Deck"
-        CMAKE_CXX_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -Wno-error"
-        CMAKE_C_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -Wno-error"
+        CMAKE_CXX_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -w"
+        CMAKE_C_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -w"
         TARGET="Steamdeck"
         ;;
     modern)
         echo "Making Sudachi Optimized Build for Modern CPUs"
-        CMAKE_CXX_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -Wno-error"
-        CMAKE_C_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -Wno-error"
+        CMAKE_CXX_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -w"
+        CMAKE_C_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -w"
         ARCH="${ARCH}_v3"
         TARGET="Modern"
         ;;
     legacy)
         echo "Making Sudachi Optimized Build for Legacy CPUs"
-        CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -Wno-error"
-        CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -Wno-error"
+        CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -w"
+        CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -O2 -pipe -flto=auto -w"
         TARGET="Legacy"
         ;;
     aarch64)
