@@ -106,7 +106,7 @@ jobs:
           echo "DATE=$(date +'%Y-%m-%d')" >> "$GITHUB_ENV"
 
       - name: Release Sudachi
-        uses: softprops/action-gh-release@v2.2.2
+        uses: softprops/action-gh-release@v2.3.2
         with:
           name: "Sudachi Unofficial Appimage: ${{ env.VERSION }}"
           tag_name: "${{ env.DATE }}-${{ env.VERSION }}"
