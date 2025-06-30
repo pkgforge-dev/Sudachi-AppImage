@@ -16,12 +16,16 @@ case "$1" in
         echo "Making Sudachi Optimized Build for Steam Deck"
         CMAKE_CXX_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -w"
         CMAKE_C_FLAGS="-march=znver2 -mtune=znver2 -O3 -pipe -flto=auto -w"
+        SUDACHI_USE_PRECOMPILED_HEADERS=OFF
+        CCACHE="ccache"
         TARGET="Steamdeck"
         ;;
     modern)
         echo "Making Sudachi Optimized Build for Modern CPUs"
         CMAKE_CXX_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -w"
         CMAKE_C_FLAGS="-march=x86-64-v3 -O3 -pipe -flto=auto -w"
+        SUDACHI_USE_PRECOMPILED_HEADERS=OFF
+        CCACHE="ccache"
         ARCH="${ARCH}_v3"
         TARGET="Modern"
         ;;
@@ -29,12 +33,15 @@ case "$1" in
         echo "Making Sudachi Optimized Build for Legacy CPUs"
         CMAKE_CXX_FLAGS="-march=x86-64 -mtune=generic -msse4.1 -O2 -pipe -flto=auto -w"
         CMAKE_C_FLAGS="-march=x86-64 -mtune=generic -msse4.1 -O2 -pipe -flto=auto -w"
+        SUDACHI_USE_PRECOMPILED_HEADERS=OFF
+        CCACHE="ccache"
         TARGET="Legacy"
         ;;
     aarch64)
         echo "Making Sudachi Optimized Build for AArch64"
         CMAKE_CXX_FLAGS="-march=armv8-a -mtune=generic -O3 -pipe -flto=auto -w"
         CMAKE_C_FLAGS="-march=armv8-a -mtune=generic -O3 -pipe -flto=auto -w"
+        CCACHE="sccache"
         TARGET="Linux"
         ;;
 esac
@@ -135,6 +142,9 @@ cmake .. -GNinja \
     -DCMAKE_SYSTEM_PROCESSOR="$(uname -m)" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_EXE_LINKER_FLAGS="-Wl,--as-needed" \
+    -DCMAKE_C_COMPILER_LAUNCHER="${CCACHE:-}" \
+    -DCMAKE_CXX_COMPILER_LAUNCHER="${CCACHE:-}" \
+    ${SUDACHI_USE_PRECOMPILED_HEADERS:+-DSUDACHI_USE_PRECOMPILED_HEADERS=$SUDACHI_USE_PRECOMPILED_HEADERS} \
     ${CMAKE_CXX_FLAGS:+-DCMAKE_CXX_FLAGS="$CMAKE_CXX_FLAGS"} \
     ${CMAKE_C_FLAGS:+-DCMAKE_C_FLAGS="$CMAKE_C_FLAGS"}
 ninja
