@@ -91,7 +91,7 @@ pacman -Syu --noconfirm \
 	zsync
 
 if [ "$(uname -m)" = 'x86_64' ]; then
-	pacman -Syu --noconfirm vulkan-intel haskell-gnutls gcc svt-av1
+	pacman -Syu --noconfirm vulkan-intel intel-media-driver haskell-gnutls gcc svt-av1
 else
 	pacman -Syu --noconfirm vulkan-freedreno vulkan-panfrost
 fi
