@@ -181,7 +181,7 @@ ln -fv ./sharun ./AppRun
 ./sharun -g
 
 # Fix broken hardware accel
-echo "LIBVA_DRIVERS_PATH=${SHARUN_DIR}/shared/lib:${SHARUN_DIR}/shared/lib/dri" >> ./.env
+echo 'LIBVA_DRIVERS_PATH=${SHARUN_DIR}/shared/lib:${SHARUN_DIR}/shared/lib/dri' >> ./.env
 
 cd ..
 # Prepare uruntime
