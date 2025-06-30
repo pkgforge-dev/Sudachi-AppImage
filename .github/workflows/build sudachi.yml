@@ -4,6 +4,8 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  push:
+    branches: [ "main" ]
   workflow_dispatch: {}
 
 jobs:
