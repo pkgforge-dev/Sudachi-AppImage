@@ -180,6 +180,9 @@ xvfb-run -a -- ./lib4bin -p -v -e -s -k \
 ln -fv ./sharun ./AppRun
 ./sharun -g
 
+# Fix broken hardware accel
+echo "LIBVA_DRIVERS_PATH=${SHARUN_DIR}/shared/lib:${SHARUN_DIR}/shared/lib/dri" >> ./.env
+
 cd ..
 # Prepare uruntime
 wget -q "$URUNTIME" -O ./uruntime
