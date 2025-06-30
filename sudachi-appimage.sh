@@ -149,6 +149,12 @@ cmake .. -GNinja \
     ${CMAKE_C_FLAGS:+-DCMAKE_C_FLAGS="$CMAKE_C_FLAGS"}
 ninja
 
+if [ "$1" != 'aarch64' ]; then
+    ccache -s -v
+else
+    sccache --show-stats
+fi
+
 VERSION="${pkgver}"
 echo "$VERSION" > ~/version
 echo "$(cat ~/version)"
