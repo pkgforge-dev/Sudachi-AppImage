@@ -41,7 +41,7 @@ pacman -Syu --noconfirm \
 	glslang \
 	glu \
 	hidapi \
-       intel-media-driver \
+  intel-media-driver \
  	jq \
 	libass \
 	libdecor \
