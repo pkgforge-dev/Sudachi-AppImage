@@ -4,9 +4,9 @@
   <br>
 </h1>
 
-[![GitHub Release](https://img.shields.io/github/v/release/pflyly/Sudachi-AppImage?label=Current%20Release)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
-[![GitHub Downloads](https://img.shields.io/github/downloads/pflyly/Sudachi-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
-[![CI Build Status](https://github.com//pflyly/Sudachi-AppImage/actions/workflows/build%20sudachi.yml/badge.svg)](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
+[![GitHub Release](https://img.shields.io/github/v/release/pkgforge-dev/Sudachi-AppImage?label=Current%20Release)](https://github.com/pkgforge-dev/Sudachi-AppImage/releases/latest)
+[![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/Sudachi-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/Sudachi-AppImage/releases/latest)
+[![CI Build Status](https://github.com//pkgforge-dev/Sudachi-AppImage/actions/workflows/build%20sudachi.yml/badge.svg)](https://github.com/pkgforge-dev/Sudachi-AppImage/releases/latest)
 
 ### 🐧
 
@@ -17,10 +17,10 @@ These builds for Linux are built with several CPU-specific compliler optimizatio
 - **Legacy x86_64 CPUs** — compatible with baseline `x86-64` (via the Legacy Build)
 - **AArch64 devices** — compatible with `aarch64` architecture
 
-All of the Appimages are built using [**Sharun**](https://github.com/VHSgunzo/sharun) and are bundled with **Mesa drivers** to ensure maximum compatibility.
+  All of the Appimages are built using [**Sharun**](https://github.com/VHSgunzo/sharun) and are bundled with **Mesa drivers** to ensure maximum compatibility.
 ---------------------------------------------------------------
 
-* [**Latest Nightly Release Here**](https://github.com/pflyly/Sudachi-AppImage/releases/latest)
+* [**Latest Nightly Release Here**](https://github.com/pkgforge-dev/Sudachi-AppImage/releases/latest)
 
 ---------------------------------------------------------------
 
