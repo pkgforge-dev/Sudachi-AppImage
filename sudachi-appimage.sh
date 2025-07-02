@@ -128,13 +128,9 @@ sed -i '/--disable-postproc/d' externals/ffmpeg/CMakeLists.txt
 sed -i '/^if *(ENABLE_SDL3)/,/^endif *()/d' src/CMakeLists.txt
 
 # Hack the title bar
-sed -i '/include(GetGitRevisionDescription)/a\
-set(GIT_DESC "v${pkgver}")\n\
-set(GIT_REV "")\n\
-set(GIT_BRANCH "master")\n\
-set(BUILD_REPOSITORY "sudachi-emu/sudachi-unofficial")\n\
-set(BUILD_TAG "sudachi-v${pkgver}")
-' CMakeModules/GenerateSCMRev.cmake
+sed -i "/include(GetGitRevisionDescription)/a\\
+set(GIT_DESC \"v${pkgver}\")\\
+set(GIT_BRANCH \"Unofficial\")" CMakeModules/GenerateSCMRev.cmake
 
 mkdir build
 cd build
