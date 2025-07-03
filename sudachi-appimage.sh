@@ -127,6 +127,11 @@ sed -i '/--disable-postproc/d' externals/ffmpeg/CMakeLists.txt
 # workaround for sudachi cmd, not needed anyway for appimage
 sed -i '/^if *(ENABLE_SDL3)/,/^endif *()/d' src/CMakeLists.txt
 
+# Hack the title bar
+sed -i "/include(GetGitRevisionDescription)/a\\
+set(GIT_DESC \"v${pkgver}\")\\
+set(GIT_BRANCH \"Unofficial\")" CMakeModules/GenerateSCMRev.cmake
+
 mkdir build
 cd build
 cmake .. -GNinja \
