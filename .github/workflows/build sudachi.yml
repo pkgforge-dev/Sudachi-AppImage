@@ -31,7 +31,7 @@ jobs:
       CCACHE_SLOPPINESS: time_macros
       SCCACHE_GHA_ENABLED: "true"
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v4.3.0
         with:
           persist-credentials: false
 
